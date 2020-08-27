@@ -1,0 +1,74 @@
+Serial code: ising.C
+Parallel code: ising_mpi.C
+
+---
+Info for the serial code:
+
+The programme is a simple implementation of the Ising Model in C/C++
+
+* To compile
+  g++ -O3 ising.C random.C -o ising
+
+* Run 	
+  ./ising 
+  ./ising < input (reads from input and writes to screen)
+  ./ising < input > out (reads from input and writes to output)
+
+* Multiple runs
+  Multiple runs can be performed with the script ising.sh.
+  From the command line:	
+  ./ising.sh &
+  The script modifies input.prov and create an input for the
+  specified dimension L, which needs to be set in the script
+  itself; for each beta in beta.list, a new directory is created,
+  where the program with the corresponding input is run; the
+  results is saved in a file called out; all the runs are
+  execited in background 
+
+* Input file:
+  The input file has the following format:
+  Size of the lattice (integer)
+  Beta (double)
+  Thermalisation sweeps (integer)
+  Number of measurements (integer)
+  Start (0 for cold start or 1 for hot start)
+
+* Output:
+  - A log file with the input parameters is printed on the screen 
+    (or in the file where it has been redirected)
+  - At the end of the log fine, the average enery and the average
+    magnetisation are printed   
+  - Measurements are saved in measures.dat 
+  - The format of measures.dat is avg energy, avg energy squared,
+    avg (absolute value of) magnetisation, squared of the latter
+  - There is one line for each measurement
+
+---
+
+Info for the parallel code:
+The programme is a simple implementation of the Ising Model in C/C++
+
+* To compile
+  mpic++ -O3 ising_mpi.C random.C -o ising_mpi
+
+* Run 	
+  A simple testrun can be done by as follows:
+
+  mpirun -np 2 ./ising_mpi < input
+
+  Refer to the section for the serial code and to the man page of
+  mpirun for further possibilities (e.g. redirecting output, increasing
+  the number of processors etc.)
+
+* Multiple runs
+  Multiple runs can be performed with the script ising_mpi.sh.
+  From the command line:	
+  ./ising_mpi.sh &
+  The script modifies input.prov and create an input for the
+  specified dimension L, which needs to be set in the script
+  itself; for each beta in beta.list, a new directory is created,
+  where the program with the corresponding input is run; the
+  results is saved in a file called out; all the runs are
+  execited in background 
+
+All other instructions are the same as for the serial code.

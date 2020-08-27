@@ -1,0 +1,10 @@
+Ising model on a 2D square lattice
+Size of the lattice: 40
+Beta: 0.439
+Thermalisation sweeps: 10000
+Number of measurements: 100000
+Start: hot
+Random seed: 1812 
+Avg ene : 1.4112 +/- 0.0034846
+Avg magn: 0.60285 +/- 0.0121585
+Computed in time 6.10174 seconds

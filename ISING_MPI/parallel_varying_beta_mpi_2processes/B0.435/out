@@ -1,0 +1,11 @@
+Ising model on a 2D square lattice
+Size of the lattice: 40
+Beta: 0.435
+Thermalisation sweeps: 10000
+Number of measurements: 100000
+Start: hot
+Random seed: 1812 
+Random seed: 3624 
+The Average Energy is 1.3721 +/- 0.163277
+The Average Magnetisation is 0.549317 +/- 0.112129
+Computed in time 27.2244 seconds
